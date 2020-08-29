@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A35210D26B74399504D596D /* Pods_UnkoKanri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8554475736BC4993FAA6D768 /* Pods_UnkoKanri.framework */; };
+		95185F4224F9E9A400388643 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95185F4124F9E9A400388643 /* GoogleService-Info.plist */; };
+		95185F4424F9ED8200388643 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95185F4324F9ED8200388643 /* DataSource.swift */; };
 		959729C024F90F6700FFCB79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959729BF24F90F6700FFCB79 /* AppDelegate.swift */; };
 		959729C224F90F6700FFCB79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959729C124F90F6700FFCB79 /* SceneDelegate.swift */; };
 		959729C424F90F6700FFCB79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959729C324F90F6700FFCB79 /* ViewController.swift */; };
@@ -16,9 +19,13 @@
 		959729D424F9492B00FFCB79 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959729D324F9492B00FFCB79 /* ListViewController.swift */; };
 		959729D724F949D900FFCB79 /* MyNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959729D624F949D900FFCB79 /* MyNavigationViewController.swift */; };
 		959729D924F94A1200FFCB79 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959729D824F94A1200FFCB79 /* MyTabBarViewController.swift */; };
+		95D50EEC24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D50EEB24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8554475736BC4993FAA6D768 /* Pods_UnkoKanri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnkoKanri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95185F4124F9E9A400388643 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		95185F4324F9ED8200388643 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		959729BC24F90F6700FFCB79 /* UnkoKanri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnkoKanri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		959729BF24F90F6700FFCB79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959729C124F90F6700FFCB79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +37,9 @@
 		959729D324F9492B00FFCB79 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		959729D624F949D900FFCB79 /* MyNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationViewController.swift; sourceTree = "<group>"; };
 		959729D824F94A1200FFCB79 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
+		95D50EEB24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnkoInfoTableViewCell.swift; sourceTree = "<group>"; };
+		9EB72963021EC197E0BFAC63 /* Pods-UnkoKanri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnkoKanri.debug.xcconfig"; path = "Target Support Files/Pods-UnkoKanri/Pods-UnkoKanri.debug.xcconfig"; sourceTree = "<group>"; };
+		AF4C2E38DD033E126C774659 /* Pods-UnkoKanri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnkoKanri.release.xcconfig"; path = "Target Support Files/Pods-UnkoKanri/Pods-UnkoKanri.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +47,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A35210D26B74399504D596D /* Pods_UnkoKanri.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		923395124182A1EA5C2ED993 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8554475736BC4993FAA6D768 /* Pods_UnkoKanri.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95185F4524F9EDDC00388643 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95185F4324F9ED8200388643 /* DataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		959729B324F90F6700FFCB79 = {
 			isa = PBXGroup;
 			children = (
 				959729BE24F90F6700FFCB79 /* UnkoKanri */,
 				959729BD24F90F6700FFCB79 /* Products */,
+				A4BC5A883838CB1B9356CFD1 /* Pods */,
+				923395124182A1EA5C2ED993 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,12 +93,11 @@
 			children = (
 				959729BF24F90F6700FFCB79 /* AppDelegate.swift */,
 				959729C124F90F6700FFCB79 /* SceneDelegate.swift */,
+				95185F4524F9EDDC00388643 /* Model */,
 				959729DA24F94AAF00FFCB79 /* View */,
 				959729D524F9496900FFCB79 /* Controller */,
-				959729C524F90F6700FFCB79 /* Main.storyboard */,
-				959729C824F90F7000FFCB79 /* Assets.xcassets */,
-				959729CA24F90F7000FFCB79 /* LaunchScreen.storyboard */,
 				959729CD24F90F7000FFCB79 /* Info.plist */,
+				95185F4124F9E9A400388643 /* GoogleService-Info.plist */,
 			);
 			path = UnkoKanri;
 			sourceTree = "<group>";
@@ -88,8 +116,21 @@
 			children = (
 				959729D624F949D900FFCB79 /* MyNavigationViewController.swift */,
 				959729D824F94A1200FFCB79 /* MyTabBarViewController.swift */,
+				95D50EEB24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift */,
+				959729C524F90F6700FFCB79 /* Main.storyboard */,
+				959729C824F90F7000FFCB79 /* Assets.xcassets */,
+				959729CA24F90F7000FFCB79 /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A4BC5A883838CB1B9356CFD1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9EB72963021EC197E0BFAC63 /* Pods-UnkoKanri.debug.xcconfig */,
+				AF4C2E38DD033E126C774659 /* Pods-UnkoKanri.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 959729D024F90F7000FFCB79 /* Build configuration list for PBXNativeTarget "UnkoKanri" */;
 			buildPhases = (
+				028CAC0F140A5DC69CD8CDB6 /* [CP] Check Pods Manifest.lock */,
 				959729B824F90F6700FFCB79 /* Sources */,
 				959729B924F90F6700FFCB79 /* Frameworks */,
 				959729BA24F90F6700FFCB79 /* Resources */,
+				DDDF3F429E4E2E81B0426E2C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95185F4224F9E9A400388643 /* GoogleService-Info.plist in Resources */,
 				959729CC24F90F7000FFCB79 /* LaunchScreen.storyboard in Resources */,
 				959729C924F90F7000FFCB79 /* Assets.xcassets in Resources */,
 				959729C724F90F6700FFCB79 /* Main.storyboard in Resources */,
@@ -158,12 +202,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		028CAC0F140A5DC69CD8CDB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UnkoKanri-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDDF3F429E4E2E81B0426E2C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnkoKanri/Pods-UnkoKanri-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnkoKanri/Pods-UnkoKanri-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnkoKanri/Pods-UnkoKanri-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		959729B824F90F6700FFCB79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95185F4424F9ED8200388643 /* DataSource.swift in Sources */,
 				959729D924F94A1200FFCB79 /* MyTabBarViewController.swift in Sources */,
+				95D50EEC24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift in Sources */,
 				959729C424F90F6700FFCB79 /* ViewController.swift in Sources */,
 				959729D724F949D900FFCB79 /* MyNavigationViewController.swift in Sources */,
 				959729C024F90F6700FFCB79 /* AppDelegate.swift in Sources */,
@@ -310,6 +398,7 @@
 		};
 		959729D124F90F7000FFCB79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EB72963021EC197E0BFAC63 /* Pods-UnkoKanri.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -328,6 +417,7 @@
 		};
 		959729D224F90F7000FFCB79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF4C2E38DD033E126C774659 /* Pods-UnkoKanri.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

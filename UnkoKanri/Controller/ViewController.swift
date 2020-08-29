@@ -12,6 +12,10 @@ class ViewController: UIViewController {
     
     private let elements = ["-----","朝: ちょ○、こつ○", "朝: ちょ○、こつ×", "朝: ちょ×、こつ○","朝: ちょ×、こつ×", "夕: ちょ○、こつ○", "夕: ちょ○、こつ×", "夕: ちょ×、こつ○", "夕: ちょ×、こつ×"]
     
+    let dataSource = DataSource()
+    
+    var result: String?
+    
     private let picker: UIPickerView = {
         let picker = UIPickerView()
         return picker
@@ -37,15 +41,6 @@ class ViewController: UIViewController {
         return button
     }()
     
-//    private let titleLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "うんこ結果を入力"
-//        label.textAlignment = .center
-//        label.translatesAutoresizingMaskIntoConstraints = false //これがないとボタンが表示されない
-//        label.font = .boldSystemFont(ofSize: 22)
-//        return label
-//    }()
-//
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "うんこ入力画面"
@@ -54,7 +49,7 @@ class ViewController: UIViewController {
         view.addSubview(picker)
         view.addSubview(imageView)
         view.addSubview(sendButton)
-//        view.addSubview(titleLabel)
+    
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,20 +60,19 @@ class ViewController: UIViewController {
         view.sendSubviewToBack(imageView)
         imageView.frame = view.bounds
         
-//        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true //横軸は中心
-//        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-//        titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
-//        titleLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
-//
         sendButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true //横軸は中心
         sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-        sendButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        sendButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
         sendButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
         
     }
     
     @objc private func didTapSendButton(){
-        print("tap")
+        guard let result = result, result != "-----" else {
+            return
+        }
+        
+        dataSource.saveData(result: result)
     }
     
     
@@ -94,8 +88,24 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
         return elements.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return elements[row]
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = .systemFont(ofSize: 25, weight: .bold)
+            pickerLabel?.textAlignment = .center
+        }
+        pickerLabel?.text = elements[row]
+
+        return pickerLabel!
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        result = elements[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50
     }
     
 }
