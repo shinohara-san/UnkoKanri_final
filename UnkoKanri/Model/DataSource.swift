@@ -24,7 +24,7 @@ class DataSource {
     
     var results = [UnkoInfo]()
     
-    func saveData(result: String){
+    func saveData(result: String, completion: @escaping (Bool)->Void){
         let id = NSUUID().uuidString
         let info = UnkoInfo(id: id, result: result, date: Date())
         
@@ -38,9 +38,10 @@ class DataSource {
         ) { err in
             if let err = err {
                 print("Error adding document: \(err)")
+                completion(false)
             } else {
                 print("Document added with ID: \(ref!.documentID)")
-                //                completion()
+                completion(true)
             }
         }
     }
@@ -66,20 +67,23 @@ class DataSource {
         }
     }
     
-    func deleteData(id: String){
+    func deleteData(id: String, completion: @escaping (Bool)->Void){
         
         db.collection("results").whereField("id", isEqualTo: id)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
+                    completion(false)
                 } else {
                     for document in querySnapshot!.documents {
                         let docId = document.documentID
                         self.db.collection("results").document(docId).delete() { err in
                             if let err = err {
                                 print("Error removing document: \(err)")
+                                completion(false)
                             } else {
                                 print("Document successfully removed!")
+                                completion(true)
                             }
                         }
                     }

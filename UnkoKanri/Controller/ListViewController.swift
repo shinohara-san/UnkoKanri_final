@@ -112,9 +112,31 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            dataSource.deleteData(id: dataSource.results[indexPath.row].id)
-            dataSource.results.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+            let dataId = dataSource.results[indexPath.row].id
+            
+
+            dataSource.deleteData(id: dataId) { (deleteSuccess) in
+                
+                var alertTitle: String
+                var alertMessage: String
+                
+                if deleteSuccess {
+                    alertTitle = "削除"
+                    alertMessage = "データを削除しました。"
+                    self.dataSource.results.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+                } else {
+                    alertTitle = "エラー"
+                    alertMessage = "データを削除できませんでした。"
+                }
+                
+                let ac = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(ac, animated: true)
+            }
+            
+            
+            
         }
     }
     

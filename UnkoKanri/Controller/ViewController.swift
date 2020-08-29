@@ -72,7 +72,24 @@ class ViewController: UIViewController {
             return
         }
         
-        dataSource.saveData(result: result)
+        dataSource.saveData(result: result) { (saveSuccess) in
+            
+            var alertTitle: String
+            var alertMessage: String
+            
+            if saveSuccess {
+                alertTitle = "完了"
+                alertMessage = "結果を送信しました。"
+            } else {
+                alertTitle = "失敗"
+                alertMessage = "結果を送信できませんでした。"
+            }
+            
+            let ac = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(ac, animated: true)
+            
+        }
     }
     
     
