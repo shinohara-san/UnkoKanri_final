@@ -30,17 +30,20 @@ class ListViewController: UIViewController {
         
         // ActivityIndicatorを作成＆中央に配置
         ActivityIndicator = UIActivityIndicatorView()
-        ActivityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        ActivityIndicator.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         ActivityIndicator.center = self.view.center
+        ActivityIndicator.color = .systemBlue
         
         // クルクルをストップした時に非表示する
         ActivityIndicator.hidesWhenStopped = true
         
-        // 色を設定
-        ActivityIndicator.style = .medium
+        // 大きさを設定
+        ActivityIndicator.style = .large
         
         //Viewに追加
         self.view.addSubview(ActivityIndicator)
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -50,6 +53,8 @@ class ListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        ActivityIndicator.startAnimating()
+        
         DispatchQueue.global().async { [weak self] in
             self?.dataSource.fetchData()
         }
