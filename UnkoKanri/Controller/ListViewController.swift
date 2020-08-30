@@ -57,6 +57,7 @@ class ListViewController: UIViewController {
         
         DispatchQueue.global().async { [weak self] in
             self?.dataSource.fetchData()
+            self?.dataSource.getUnkoAlert()
         }
         
         wait( { return self.dataSource.results == [UnkoInfo]() } ) {
@@ -65,7 +66,32 @@ class ListViewController: UIViewController {
                 self?.ActivityIndicator.stopAnimating()
             }
         }
+        
+        wait( { return self.dataSource.alertReady == false } ) {
+            
+            let choko = self.dataSource.chokoAlert
+            let kotsu = self.dataSource.kotaroAlert
+            
+            var title = ""
+            
+            if choko == 3 && kotsu == 3 {
+                title = "2匹やばい"
+            } else if kotsu == 3 {
+                title = "こたろうやばい"
+            } else if choko == 3{
+                title = "ちょこやばい"
+            } else {
+                return
+            }
+            
+            let ac = UIAlertController(title: title, message: "3回連続うんこしてません。", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(ac, animated: true)
+            
+        }
+        
     }
+
     
     func wait(_ waitContinuation: @escaping (()->Bool), completion: @escaping (()->Void)) {
         var wait = waitContinuation()
@@ -90,10 +116,10 @@ class ListViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         dataSource.results = [UnkoInfo]()
+        dataSource.alertReady = false
+        dataSource.chokoAlert = 0
+        dataSource.kotaroAlert = 0
     }
-    
-    
-    
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {

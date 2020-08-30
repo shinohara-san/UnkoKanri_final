@@ -26,7 +26,11 @@ class DataSource {
     
     var chokoUnko:Int = 0
     var kotsuUnko:Int = 0
-    var done: Bool = false
+    var done: Bool = false //通知
+    
+    var chokoAlert = 0
+    var kotaroAlert = 0
+    var alertReady = false //注意アラート
     
     func saveData(result: String, completion: @escaping (Bool)->Void){
         let id = NSUUID().uuidString
@@ -128,7 +132,39 @@ class DataSource {
                 }
             }
         }
+    }
+    
+    func getUnkoAlert(){
         
+        db.collection("results").order(by: "date", descending: true).limit(to: 3).getDocuments { (querySnapshot, err) in
+                   if let err = err {
+                       print("Error getting documents: \(err)")
+                   } else {
+                       guard let querySnapshot = querySnapshot else { return }
+                       for document in querySnapshot.documents {
+                           guard let result = document.get("result") as? String else {return}
+                           switch result {
+                           case "朝: ちょ×、こつ×":
+                               self.chokoAlert += 1
+                               self.kotaroAlert += 1
+                           case "朝: ちょ○、こつ×":
+                               self.kotaroAlert += 1
+                           case "朝: ちょ×、こつ○":
+                               self.chokoAlert += 1
+                           case "夕: ちょ×、こつ×":
+                               self.chokoAlert += 1
+                               self.kotaroAlert += 1
+                           case "夕: ちょ○、こつ×":
+                               self.kotaroAlert += 1
+                           case "夕: ちょ×、こつ○":
+                               self.chokoAlert += 1
+                           default:
+                               break
+                           }
+                           self.alertReady = true
+                       }
+                   }
+               }
     }
     
     
