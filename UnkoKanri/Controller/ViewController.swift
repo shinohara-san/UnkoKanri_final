@@ -113,6 +113,13 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
             pickerLabel?.textAlignment = .center
         }
         pickerLabel?.text = elements[row]
+        if (pickerLabel?.text?.contains("朝"))! {
+            pickerLabel?.textColor = .systemRed
+        } else if pickerLabel?.text == "-----" {
+            pickerLabel?.textColor = .label
+        } else {
+            pickerLabel?.textColor = .systemBlue
+        }
 
         return pickerLabel!
     }

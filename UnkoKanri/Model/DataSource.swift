@@ -24,6 +24,10 @@ class DataSource {
     
     var results = [UnkoInfo]()
     
+    var chokoUnko:Int = 0
+    var kotsuUnko:Int = 0
+    var done: Bool = false
+    
     func saveData(result: String, completion: @escaping (Bool)->Void){
         let id = NSUUID().uuidString
         let info = UnkoInfo(id: id, result: result, date: Date())
@@ -90,5 +94,42 @@ class DataSource {
                 }
         }
     }
+    
+    func getYesterdayUnko(){
+        
+        db.collection("results").order(by: "date", descending: true).limit(to: 2).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                guard let querySnapshot = querySnapshot else { return }
+                for document in querySnapshot.documents {
+                    guard let result = document.get("result") as? String else {return}
+                    switch result {
+                    case "朝: ちょ○、こつ○":
+                        self.chokoUnko += 1
+                        self.kotsuUnko += 1
+                        
+                    case "朝: ちょ○、こつ×":
+                        self.chokoUnko += 1
+                    case "朝: ちょ×、こつ○":
+                        self.kotsuUnko += 1
+                    case "夕: ちょ○、こつ○":
+                        self.chokoUnko += 1
+                        self.kotsuUnko += 1
+                    case "夕: ちょ○、こつ×":
+                        self.chokoUnko += 1
+                    case "夕: ちょ×、こつ○":
+                        self.kotsuUnko += 1
+                        
+                    default:
+                        break
+                    }
+                    self.done = true
+                }
+            }
+        }
+        
+    }
+    
     
 }

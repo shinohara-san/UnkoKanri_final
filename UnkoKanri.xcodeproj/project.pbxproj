@@ -20,6 +20,7 @@
 		959729D724F949D900FFCB79 /* MyNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959729D624F949D900FFCB79 /* MyNavigationViewController.swift */; };
 		959729D924F94A1200FFCB79 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959729D824F94A1200FFCB79 /* MyTabBarViewController.swift */; };
 		95D50EEC24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D50EEB24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift */; };
+		95D50EEE24FB57700078A9E7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D50EED24FB57700078A9E7 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		959729D624F949D900FFCB79 /* MyNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationViewController.swift; sourceTree = "<group>"; };
 		959729D824F94A1200FFCB79 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		95D50EEB24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnkoInfoTableViewCell.swift; sourceTree = "<group>"; };
+		95D50EED24FB57700078A9E7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9EB72963021EC197E0BFAC63 /* Pods-UnkoKanri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnkoKanri.debug.xcconfig"; path = "Target Support Files/Pods-UnkoKanri/Pods-UnkoKanri.debug.xcconfig"; sourceTree = "<group>"; };
 		AF4C2E38DD033E126C774659 /* Pods-UnkoKanri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnkoKanri.release.xcconfig"; path = "Target Support Files/Pods-UnkoKanri/Pods-UnkoKanri.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				95185F4524F9EDDC00388643 /* Model */,
 				959729DA24F94AAF00FFCB79 /* View */,
 				959729D524F9496900FFCB79 /* Controller */,
+				95D50EED24FB57700078A9E7 /* Extension.swift */,
 				959729CD24F90F7000FFCB79 /* Info.plist */,
 				95185F4124F9E9A400388643 /* GoogleService-Info.plist */,
 			);
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D50EEE24FB57700078A9E7 /* Extension.swift in Sources */,
 				95185F4424F9ED8200388643 /* DataSource.swift in Sources */,
 				959729D924F94A1200FFCB79 /* MyTabBarViewController.swift in Sources */,
 				95D50EEC24FA00DE0078A9E7 /* UnkoInfoTableViewCell.swift in Sources */,
@@ -411,7 +415,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shino.UnkoKanri;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -430,7 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shino.UnkoKanri;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
