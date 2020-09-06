@@ -32,7 +32,6 @@ class ListViewController: UIViewController {
         ActivityIndicator = UIActivityIndicatorView()
         ActivityIndicator.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         ActivityIndicator.center = self.view.center
-        ActivityIndicator.color = .systemBlue
         
         // クルクルをストップした時に非表示する
         ActivityIndicator.hidesWhenStopped = true
@@ -74,17 +73,17 @@ class ListViewController: UIViewController {
             
             var title = ""
             
-            if choko == 3 && kotsu == 3 {
-                title = "2匹やばい"
-            } else if kotsu == 3 {
+            if choko == 2 && kotsu == 2 {
+                title = "2匹ともやばい"
+            } else if kotsu == 2{
                 title = "こたろうやばい"
-            } else if choko == 3{
+            } else if choko == 2{
                 title = "ちょこやばい"
             } else {
                 return
             }
             
-            let ac = UIAlertController(title: title, message: "3回連続うんこしてません。", preferredStyle: .alert)
+            let ac = UIAlertController(title: title, message: "2回連続うんこしてません。", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(ac, animated: true)
             

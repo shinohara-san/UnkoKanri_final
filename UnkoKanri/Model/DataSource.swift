@@ -108,6 +108,7 @@ class DataSource {
                 guard let querySnapshot = querySnapshot else { return }
                 for document in querySnapshot.documents {
                     guard let result = document.get("result") as? String else {return}
+                    
                     switch result {
                     case "朝: ちょ○、こつ○":
                         self.chokoUnko += 1
@@ -136,35 +137,36 @@ class DataSource {
     
     func getUnkoAlert(){
         
-        db.collection("results").order(by: "date", descending: true).limit(to: 3).getDocuments { (querySnapshot, err) in
-                   if let err = err {
-                       print("Error getting documents: \(err)")
-                   } else {
-                       guard let querySnapshot = querySnapshot else { return }
-                       for document in querySnapshot.documents {
-                           guard let result = document.get("result") as? String else {return}
-                           switch result {
-                           case "朝: ちょ×、こつ×":
-                               self.chokoAlert += 1
-                               self.kotaroAlert += 1
-                           case "朝: ちょ○、こつ×":
-                               self.kotaroAlert += 1
-                           case "朝: ちょ×、こつ○":
-                               self.chokoAlert += 1
-                           case "夕: ちょ×、こつ×":
-                               self.chokoAlert += 1
-                               self.kotaroAlert += 1
-                           case "夕: ちょ○、こつ×":
-                               self.kotaroAlert += 1
-                           case "夕: ちょ×、こつ○":
-                               self.chokoAlert += 1
-                           default:
-                               break
-                           }
-                           self.alertReady = true
-                       }
-                   }
-               }
+        db.collection("results").order(by: "date", descending: true).limit(to: 2).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                guard let querySnapshot = querySnapshot else { return }
+                for document in querySnapshot.documents {
+                    guard let result = document.get("result") as? String else {return}
+                    
+                    switch result {
+                    case "朝: ちょ×、こつ×":
+                        self.chokoAlert += 1
+                        self.kotaroAlert += 1
+                    case "朝: ちょ○、こつ×":
+                        self.kotaroAlert += 1
+                    case "朝: ちょ×、こつ○":
+                        self.chokoAlert += 1
+                    case "夕: ちょ×、こつ×":
+                        self.chokoAlert += 1
+                        self.kotaroAlert += 1
+                    case "夕: ちょ○、こつ×":
+                        self.kotaroAlert += 1
+                    case "夕: ちょ×、こつ○":
+                        self.chokoAlert += 1
+                    default:
+                        break
+                    }
+                    self.alertReady = true
+                }
+            }
+        }
     }
     
     
