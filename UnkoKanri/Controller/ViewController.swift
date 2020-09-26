@@ -69,27 +69,32 @@ class ViewController: UIViewController {
     
     @objc private func didTapSendButton(){
         guard let result = result, result != "-----" else {
+            showAlert(alertTitle: "エラー", alertMessage: "うんこ結果を選択してください。")
             return
         }
         
-        dataSource.saveData(result: result) { (saveSuccess) in
+        dataSource.saveData(result: result) { [weak self](saveSuccess) in
             
             var alertTitle: String
             var alertMessage: String
             
             if saveSuccess {
                 alertTitle = "完了"
-                alertMessage = "結果を送信しました。"
+                alertMessage = "うんこ結果を送信しました。"
             } else {
                 alertTitle = "失敗"
-                alertMessage = "結果を送信できませんでした。"
+                alertMessage = "うんこ結果を送信できませんでした。"
             }
             
-            let ac = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(ac, animated: true)
+            self?.showAlert(alertTitle: alertTitle, alertMessage: alertMessage)
             
         }
+    }
+    
+    private func showAlert(alertTitle: String, alertMessage: String){
+        let ac = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(ac, animated: true)
     }
     
     

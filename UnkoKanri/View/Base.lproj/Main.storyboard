@@ -26,7 +26,6 @@
         <!--My Tab Bar View Controller-->
         <scene sceneID="dv4-7j-RQY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RU2-IC-mpO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="VkM-LV-qGU" customClass="MyTabBarViewController" customModule="UnkoKanri" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TdN-hM-n9v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -38,6 +37,7 @@
                         <segue destination="2Ti-3B-fVM" kind="relationship" relationship="viewControllers" id="mqA-oK-vKn"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RU2-IC-mpO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1065" y="-288"/>
         </scene>
@@ -57,11 +57,11 @@
             </objects>
             <point key="canvasLocation" x="2720.289855072464" y="482.8125"/>
         </scene>
-        <!--My Navigation View Controller-->
+        <!--結果-->
         <scene sceneID="P86-Cw-08b">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ti-3B-fVM" customClass="MyNavigationViewController" customModule="UnkoKanri" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="book" catalog="system" id="UHA-ed-ftf"/>
+                    <tabBarItem key="tabBarItem" title="結果" image="book" catalog="system" id="UHA-ed-ftf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Br-aB-hK7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -76,11 +76,11 @@
             </objects>
             <point key="canvasLocation" x="1810.144927536232" y="482.8125"/>
         </scene>
-        <!--My Navigation View Controller-->
+        <!--入力-->
         <scene sceneID="FnE-cx-kqq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z2Y-Ww-ceU" customClass="MyNavigationViewController" customModule="UnkoKanri" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="pencil.tip" catalog="system" id="dQ0-vK-abN"/>
+                    <tabBarItem key="tabBarItem" title="入力" image="pencil.tip" catalog="system" id="dQ0-vK-abN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zPz-V6-6Y5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

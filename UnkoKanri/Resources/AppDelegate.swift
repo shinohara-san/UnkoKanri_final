@@ -39,6 +39,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.setLocalNotification(title:"昨日のうんこ", message:"ちょこ \(dataSource.chokoUnko)回、こたろ \(dataSource.kotsuUnko)回")
         }
         
+        UINavigationBar.appearance().barTintColor = UIColor.systemBlue
+        // ナビゲーションバーのアイテムの色　（戻る　＜　とか　読み込みゲージとか）
+        UINavigationBar.appearance().tintColor = UIColor.white
+        // ナビゲーションバーのテキストを変更する
+        UINavigationBar.appearance().titleTextAttributes = [
+            // 文字の色
+        .foregroundColor: UIColor.white
+        ]
+        
+        
         return true
     }
     
